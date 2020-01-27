@@ -4,7 +4,7 @@
 3. Print all capitals.
 4. Create a single string 'Alabama -> Montgomery, Alaska -> Juneau, ...'
 5. Ensure the string you created in 4. is alphabetically sorted by state
-7. Now we want to add the reverse look up, given the name of a capital what state
+6. Now we want to add the reverse look up, given the name of a capital what state
 is it in?
 Implement the function def get_state(capital): below so it returns the state.
 GOTCHAS: What happens if two states have the same capital name, how do you
@@ -13,7 +13,7 @@ handle that?
 """
 import sys
 
-import pytest
+# import pytest
 
 STATES_CAPITALS = {
     'Alabama' : 'Montgomery',
@@ -68,34 +68,49 @@ STATES_CAPITALS = {
     'Wyoming' : 'Cheyenne',
 }
 
-
 def capital_of_Idaho():
-    # Your code here
-    pass
+    print(STATES_CAPITALS.get('Idaho'))
+
+capital_of_Idaho()
+
 
 def all_states():
-    # Your code here
-    pass
+    for value in STATES_CAPITALS.values():
+
+        print(value)
+        pass
+all_states()
+
 
 def all_capitals():
-    # Your code here
-    pass
+    for key in STATES_CAPITALS.keys():
+
+        print(key)
+        pass
+all_capitals()
+
 
 def states_capitals_string():
-    # Your code here
-    pass
+    for key, value in sorted(STATES_CAPITALS.items()):
 
+     print("{key} => {value}".format(key=key, value=value))
+     pass
+states_capitals_string()
 
 
 def get_state(capital):
-    pass
+    my_list=[]
+    for key, value in STATES_CAPITALS.items():
+        if value == capital:
+            my_list.append(key);
+    return my_list;
 
-
+print(get_state("Madison"));
 
 def test_state_to_capital():
     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
 
-
+"""""
 def test_state_to_capital_unknown():
     with pytest.raises(KeyError):
         STATES_CAPITALS['']
@@ -116,3 +131,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+"""
